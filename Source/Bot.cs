@@ -133,16 +133,10 @@ namespace WinBot
                     CommandHandler.HandleCommand(e.Message, e.Author);
                 return Task.CompletedTask;
             };
-#if TOFU
             client.GuildMemberAdded += async (DiscordClient client, GuildMemberAddEventArgs e) => {
-                if(!Global.mutedUsers.Contains(e.Member.Id))
-                    await Global.welcomeChannel.SendMessageAsync($"Welcome, {e.Member.Mention} to Cerro Gordo! Be sure to read the <#774567486069800960> before chatting!");
-                else {
-                    await Global.welcomeChannel.SendMessageAsync($"Welcome, {e.Member.Mention} to Cerro Gordo! Unfortunately it seems as if you have failed to read <#774567486069800960>, have fun in the hole!");
-                    await e.Member.GrantRoleAsync(Global.mutedRole, "succ");
-                }
+                if(Global.mutedUsers.Contains(e.Member.Id))
+                    await e.Member.GrantRoleAsync(Global.mutedRole, "smh what an idiot");
             };
-#endif
             // Commands
             commands.CommandErrored += CommandHandler.HandleError;
 
@@ -185,10 +179,8 @@ namespace WinBot
             }
             if(!ResourceExists("blacklist", ResourceType.JsonData))
                 File.WriteAllText(GetResourcePath("blacklist", ResourceType.JsonData), "[]");
-#if TOFU
             if(!ResourceExists("mute", ResourceType.JsonData))
                 File.WriteAllText(GetResourcePath("mute", ResourceType.JsonData), "[]");
-#endif
 
             // Verify and download resources
             Log.Information("Verifying resources...");
@@ -218,9 +210,7 @@ namespace WinBot
                 Environment.Exit(-1);
             }
             Global.blacklistedUsers = JsonConvert.DeserializeObject<List<ulong>>(File.ReadAllText(GetResourcePath("blacklist", ResourceType.JsonData)));
-#if TOFU
             Global.mutedUsers = JsonConvert.DeserializeObject<List<ulong>>(File.ReadAllText(GetResourcePath("mute", ResourceType.JsonData)));
-#endif
         }
     }
 
@@ -263,9 +253,9 @@ namespace WinBot
         
         // Moderation
         public static List<ulong> blacklistedUsers = new List<ulong>();
-#if TOFU
         public static List<ulong> mutedUsers = new List<ulong>();
         public static DiscordRole mutedRole;
+#if TOFU
         public static DiscordChannel welcomeChannel = null;
 #endif
     }
