@@ -15,7 +15,7 @@ namespace WinBot.Commands.Fun
         [Command("hackerman")]
         [Description("Hack into the mainframes... just kidding; Hack into Toxidation's network.")]
         [Usage("[length]")]
-        [Category(Category.Fun)]
+        [Attributes.Category(Category.Fun)]
         public async Task Hackerman(CommandContext Context, int length = 6)
         {
             Random r = new Random();

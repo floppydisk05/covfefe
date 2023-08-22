@@ -19,7 +19,7 @@ namespace WinBot.Commands.Owner
     {
         [Command("serverlist")]
         [Description("Lists guilds the bot is in")]
-        [Category(Category.Owner)]
+        [Attributes.Category(Category.Owner)]
         [RequireOwner]
         public async Task ServerList(CommandContext Context)
         {

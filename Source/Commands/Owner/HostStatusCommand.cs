@@ -21,7 +21,7 @@ namespace WinBot.Commands.Owner
         [Command("hoststatus")]
         [Description("Gets info about the host machine")]
         [Aliases("host", "hostinfo")]
-        [Category(Category.Owner)]
+        [Attributes.Category(Category.Owner)]
         [RequireOwner]
         public async Task HostStatus(CommandContext Context)
         {

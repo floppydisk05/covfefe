@@ -17,7 +17,7 @@ namespace WinBot.Commands.NerdStuff
         [Command("weatherdata")]
         [Description("Pulls data from floppy's weather station")]
         [Usage("(longterm)")]
-        [Category(Category.Main)]
+        [Attributes.Category(Category.Main)]
         public async Task WeatherData(CommandContext Context, string command = null)
         {
             DiscordEmbedBuilder eb = new DiscordEmbedBuilder();

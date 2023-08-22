@@ -12,7 +12,7 @@ namespace WinBot.Commands.Main
     {
         [Command("uptime")]
         [Description("Gets the bot's uptime")]
-        [Category(Category.Main)]
+        [Attributes.Category(Category.Main)]
         public async Task Ping(CommandContext Context)
         {
             TimeSpan t = TimeSpan.FromMilliseconds(Convert.ToInt32(Bot.sw.ElapsedMilliseconds));

@@ -19,7 +19,7 @@ namespace WinBot.Commands.Main
         [Command("remind")]
         [Description("Remind you about something or list your reminders")]
         [Usage("[list] or [Time] [Time Unit (minutes/m, hours/h, days/d, years/y)] [Message] (Note that long timespans are likely unreliable due to bot restarts)]")]
-        [Category(Category.Main)]
+        [Attributes.Category(Category.Main)]
         public async Task Remind(CommandContext Context, string timeStr, [RemainingText] string message = "")
         {
             // List reminders

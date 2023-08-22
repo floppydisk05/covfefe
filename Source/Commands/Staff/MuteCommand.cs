@@ -21,7 +21,7 @@ namespace WinBot.Commands.Staff
         [Command("mute")]
         [Description("Mute a dirtbag")]
         [Usage("[user]")]
-        [Category(Category.Staff)]
+        [Attributes.Category(Category.Staff)]
         [RequireUserPermissions(DSharpPlus.Permissions.KickMembers)]
         public async Task Mute(CommandContext Context, DiscordMember user)
         {

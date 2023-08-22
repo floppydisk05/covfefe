@@ -14,7 +14,7 @@ namespace WinBot.Commands.Main
         [Command("warn")]
         [Description("Warn a user")]
         [Usage("[user] [reason]")]
-        [Category(Category.Staff)]
+        [Attributes.Category(Category.Staff)]
         [RequireUserPermissions(DSharpPlus.Permissions.KickMembers)]
         public async Task Warn(CommandContext Context, DiscordMember user, [RemainingText] string reason = null)
         {

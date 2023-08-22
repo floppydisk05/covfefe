@@ -16,7 +16,7 @@ namespace WinBot.Commands.Fun
         [Command("fortune")]
         [Description("It's the BSD fortune program")]
         [Usage("fortune")]
-        [Category(Category.Fun)]
+        [Attributes.Category(Category.Fun)]
         public async Task Exec(CommandContext Context)
         {
             string command = "/usr/games/fortune -a";

@@ -15,7 +15,7 @@ namespace WinBot.Commands.Fun
     {
         [Command("bsod")]
         [Description("It does the thing™")]
-        [Category(Category.Fun)]
+        [Attributes.Category(Category.Fun)]
         public async Task BSOD(CommandContext Context)
         {
             await Context.ReplyAsync("succ is dead, no succ");

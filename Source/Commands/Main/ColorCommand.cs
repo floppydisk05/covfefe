@@ -17,7 +17,7 @@ namespace WinBot.Commands.Main
         [Command("color")]
         [Description("Gets info about the given hex color")]
         [Usage("[hex value]")]
-        [Category(Category.Main)]
+        [Attributes.Category(Category.Main)]
         public async Task Color(CommandContext Context, [RemainingText] string hexString = null)
         {
             if (hexString == null) await Context.ReplyAsync("No hex value specified!");

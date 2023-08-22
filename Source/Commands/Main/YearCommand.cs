@@ -12,7 +12,7 @@ namespace WinBot.Commands.Main
     {
         [Command("year")]
         [Description("Gets the remaining time in the year")]
-        [Category(Category.Fun)]
+        [Attributes.Category(Category.Fun)]
         public async Task Year(CommandContext Context)
         {
             var timeSpan = new DateTime(DateTime.Now.Year + 1, 1, 1).Subtract(DateTime.Now);

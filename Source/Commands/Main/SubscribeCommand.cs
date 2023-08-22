@@ -12,7 +12,7 @@ namespace WinBot.Commands.Main
     {
         [Command("subscribe")]
         [Description("Subscribes or unsubscribes you to announcement pings")]
-        [Category(Category.Main)]
+        [Attributes.Category(Category.Main)]
         public async Task Subscribe(CommandContext ctx)
         {
             var role = ctx.Guild.GetRole(860597033736208404);

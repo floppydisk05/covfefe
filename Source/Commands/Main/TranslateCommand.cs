@@ -21,7 +21,7 @@ namespace WinBot.Commands.Main
         [Command("tr")]
         [Description("Translates text from one language to another")]
         [Usage("[-from=code] [-to=code] [text]")]
-        [Category(Category.Main)]
+        [Attributes.Category(Category.Main)]
         public async Task Translate(CommandContext Context, [RemainingText]string text = null)
         {
             string source = "";

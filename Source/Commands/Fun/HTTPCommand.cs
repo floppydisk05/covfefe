@@ -16,7 +16,7 @@ namespace WinBot.Commands.Fun
     {
         [Command("http")]
         [Description("Gets the specified (or random) HTTP status code from http.cat")]
-        [Category(Category.Fun)]
+        [Attributes.Category(Category.Fun)]
         public async Task HTTP(CommandContext Context, string code = "")
         {
             string url = "";

@@ -17,7 +17,7 @@ namespace WinBot.Commands.NerdStuff
         [Command("cwx")]
         //[Description("Sends a map of radio MUF")]
         [Usage("[yyyy-mm-dd")]
-        [Category(Category.NerdStuff)]
+        [Attributes.Category(Category.NerdStuff)]
         public async Task CWX(CommandContext Context, string date = null)
         {
             DiscordEmbedBuilder Embed = new DiscordEmbedBuilder();
