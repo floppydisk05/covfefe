@@ -58,7 +58,7 @@ public class TVCommand : BaseCommandModule {
         await msg.DeleteAsync();
     }
 
-    private MagickImage DoTV(MagickImage img, ImageArgs args, bool isGif = false) {
+    private static MagickImage DoTV(MagickImage img, ImageArgs args, bool isGif = false) {
         // Composite args
         var rotation = 0.15f;
         var srcX = 260;
@@ -71,29 +71,31 @@ public class TVCommand : BaseCommandModule {
         if (string.IsNullOrWhiteSpace(args.textArg))
             args.textArg = images[new Random().Next(0, images.Length)];
 
-        if (args.textArg.ToLower() == "celebrate") {
-            compX = 196;
-            compY = 64;
-            srcX = 149;
-            srcY = 84;
-            rotation = 0;
-            imageFile = "tv2.png";
-        }
-        else if (args.textArg.ToLower() == "remote") {
-            compX = 95;
-            compY = 35;
-            srcX = 459;
-            srcY = 276;
-            rotation = 0;
-            imageFile = "tv3.png";
-        }
-        else if (args.textArg.ToLower() == "angry") {
-            compX = 75;
-            compY = 145;
-            srcX = 280;
-            srcY = 165;
-            rotation = 0;
-            imageFile = "tv4.png";
+        switch (args.textArg.ToLower()) {
+            case "celebrate":
+                compX = 196;
+                compY = 64;
+                srcX = 149;
+                srcY = 84;
+                rotation = 0;
+                imageFile = "tv2.png";
+                break;
+            case "remote":
+                compX = 95;
+                compY = 35;
+                srcX = 459;
+                srcY = 276;
+                rotation = 0;
+                imageFile = "tv3.png";
+                break;
+            case "angry":
+                compX = 75;
+                compY = 145;
+                srcX = 280;
+                srcY = 165;
+                rotation = 0;
+                imageFile = "tv4.png";
+                break;
         }
 
         var tv = new MagickImage(ResourceManager.GetResourcePath(imageFile, ResourceType.Resource));

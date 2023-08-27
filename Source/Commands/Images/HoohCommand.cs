@@ -58,8 +58,7 @@ public class HoohCommand : BaseCommandModule {
     }
 
     public static void DoHooh(MagickImage image) {
-        MagickImage top;
-        top = (MagickImage)image.Clone();
+        MagickImage top = (MagickImage)image.Clone();
 
         var height = image.Height / 2;
         if (height <= 0)

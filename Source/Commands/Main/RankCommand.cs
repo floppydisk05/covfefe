@@ -37,7 +37,6 @@ public class RankCommand : BaseCommandModule {
         var fonts = new PrivateFontCollection();
         fonts.AddFontFile(GetResourcePath("Roboto-Regular.ttf", ResourceType.Resource));
         var brush = new SolidBrush(Color.White);
-        var drawForm = new StringFormat();
         var roboto = new Font(fonts.Families[0].Name, 50, FontStyle.Regular, GraphicsUnit.Pixel);
         var robotoSmall = new Font(fonts.Families[0].Name, 35, FontStyle.Regular, GraphicsUnit.Pixel);
 

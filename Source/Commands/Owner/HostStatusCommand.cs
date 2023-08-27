@@ -21,7 +21,7 @@ public class HostStatusCommand : BaseCommandModule {
         await Context.ReplyAsync("", Embed.Build());
     }
 
-    public string ParseNF(string neofetch) {
+    public static string ParseNF(string neofetch) {
         var parsed = neofetch;
         parsed = parsed
             .Replace("OS: ", "OS:            ")

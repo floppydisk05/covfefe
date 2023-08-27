@@ -30,7 +30,7 @@ public class McInfoCommand : BaseCommandModule {
         await Context.Channel.TriggerTypingAsync();
 
         // Download the server info
-        var json = "";
+        string json;
         using (var http = new HttpClient()) {
             json = await http.GetStringAsync($"https://api.mcsrvstat.us/2/{server.address}");
         }

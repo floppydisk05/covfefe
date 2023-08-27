@@ -26,3 +26,4 @@ exclude:
   - name: SuggestVarOrType_Elsewhere
   - name: SuggestVarOrType_BuiltInTypes
   - name: SuggestVarOrType_SimpleTypes
+  - name: CheckNamespace

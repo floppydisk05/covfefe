@@ -22,7 +22,7 @@ public class MarkovCommand : BaseCommandModule {
     [Usage("[user] [length]")]
     [Attributes.Category(Category.Fun)]
     public async Task Markov(CommandContext Context, DiscordMember user = null, [RemainingText] int length = 5) {
-        List<string> data = null;
+        List<string> data;
         var sourceName = "Source: User-Submitted Messages";
 
         if (user == null) {
@@ -38,11 +38,16 @@ public class MarkovCommand : BaseCommandModule {
             sourceName = "Source: " + bUser.username;
         }
 
-        if (length > 25)
-            length = 25;
-        else if (length < 0)
-            length = 1;
-
+        switch (length) {
+            case > 25:
+                length = 25;
+                break;
+            
+            case < 0:
+                length = 1;
+                break;
+        }
+        
         // Generate the markov text
         var model = new StringMarkov(1);
         model.Learn(data);

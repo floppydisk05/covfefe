@@ -60,16 +60,16 @@ public class User {
 #if TOFU
         public bool levelMessages { get; set; } = true;
 #else
-    public bool levelMessages { get; set; } = false;
+    public bool levelMessages { get; set; }
 #endif
-    public float xp { get; set; } = 0;
-    public float totalxp { get; set; } = 0;
+    public float xp { get; set; }
+    public float totalxp { get; set; }
     public int level { get; set; } = 1;
 
     // Trivia
-    public int correctTrivia { get; set; } = 0;
-    public int totalTrivia { get; set; } = 0;
-    public int triviaScore { get; set; } = 0;
+    public int correctTrivia { get; set; }
+    public int totalTrivia { get; set; }
+    public int triviaScore { get; set; }
 
     // Messages
     public bool optedOutOfMessages { get; set; } = false;

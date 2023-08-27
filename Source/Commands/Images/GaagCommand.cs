@@ -28,7 +28,7 @@ public class GaagCommand : BaseCommandModule {
         var msg = await Context.ReplyAsync("Processing...\nThis may take a while depending on the image size");
 
         // G a a g. There's probably better ways to do this but meh
-        MagickImageCollection gif = null;
+        MagickImageCollection gif;
         if (args.extension.ToLower() != "gif")
             return;
         gif = new MagickImageCollection(tempImgFile);

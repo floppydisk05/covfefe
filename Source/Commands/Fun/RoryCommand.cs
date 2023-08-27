@@ -13,7 +13,7 @@ public class RoryCommand : BaseCommandModule {
     [Description("Gets a random picture of rory")]
     [Attributes.Category(Category.Fun)]
     public async Task Rory(CommandContext Context) {
-        var json = "";
+        string json;
         // Grab the json string from the API
         using (var client = new WebClient()) {
             json = client.DownloadString("https://rory.cat/purr");

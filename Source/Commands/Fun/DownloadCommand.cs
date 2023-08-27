@@ -83,10 +83,7 @@ public class DownloadCommand : BaseCommandModule {
             FontStyle.Regular,
             GraphicsUnit.Pixel
         );
-        SolidBrush brush;
-        if (!red) brush = new SolidBrush(Color.White);
-        else brush = new SolidBrush(Color.FromArgb(102, 0, 0));
-        var drawForm = new StringFormat();
+        SolidBrush brush = !red ? new SolidBrush(Color.White) : new SolidBrush(Color.FromArgb(102, 0, 0));
 
         // My best friend, RNG
         float youWouldnt = new Random().Next(-100, 100);

@@ -24,11 +24,10 @@ public class WikiCommand : BaseCommandModule {
         var resp = await wikiclient.SearchAsync(req);
 
         foreach (var s in resp.QueryResult.SearchResults) {
-            Context.ReplyAsync($"{s.Url}".Replace(" ", "_"));
+            await Context.ReplyAsync($"{s.Url}".Replace(" ", "_"));
             return;
         }
 
-        Context.ReplyAsync("No results.");
-        ;
+        await Context.ReplyAsync("No results.");
     }
 }

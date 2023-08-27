@@ -46,7 +46,7 @@ public class SpinCommand : BaseCommandModule {
         TempManager.RemoveTempFile(seed + "-spin.gif");
     }
 
-    private MagickImageCollection DoSpin(MagickImage img, ImageArgs args) {
+    private static MagickImageCollection DoSpin(MagickImage img, ImageArgs args) {
         // Setup
         var gifOut = new MagickImageCollection();
         var mask = new MagickImage(ResourceManager.GetResourcePath("circleMask.png", ResourceType.Resource));

@@ -17,8 +17,7 @@ public class WeatherDataCommand : BaseCommandModule {
     public async Task WeatherData(CommandContext Context, string command = null) {
         var eb = new DiscordEmbedBuilder();
         if (command == null) {
-            var json = "";
-            var time = "";
+            string json;
 
             // Try to grab the json string from the API
             try {
@@ -55,7 +54,6 @@ public class WeatherDataCommand : BaseCommandModule {
         }
         else if (command == "longterm") {
             var json = "";
-            var time = "";
 
             // Try to grab the json string from the API
             try {

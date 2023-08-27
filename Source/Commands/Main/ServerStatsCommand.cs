@@ -21,12 +21,6 @@ public class ServerStatsCommand : BaseCommandModule {
         reports.Add(DailyReportSystem.report);
         reports = reports.OrderByDescending(grp => grp.dayOfReport.DayOfYear).Reverse().ToList();
 
-        double[] messages, commands, ys;
-#if TOFU
-            double[] userJoin, userLeave;
-#endif
-        string[] xticks;
-
         // Data parsing... this is a huge mess but oh well, I'm lazy and it just works
         // now even MORE of a mess! - Starman Aug 2021
 
@@ -35,10 +29,10 @@ public class ServerStatsCommand : BaseCommandModule {
             if (DateTime.Now.Subtract(reports[i].dayOfReport).TotalDays <= 15)
                 realCount++;
 
-        messages = new double[realCount];
-        commands = new double[realCount];
-        ys = new double[realCount];
-        xticks = new string[realCount];
+        double[] messages = new double[realCount];
+        double[] commands = new double[realCount];
+        double[] ys = new double[realCount];
+        string[] xticks = new string[realCount];
 #if TOFU
                 userJoin = new double[realCount];
                 userLeave = new double[realCount];

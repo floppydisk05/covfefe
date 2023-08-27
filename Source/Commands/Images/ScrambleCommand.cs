@@ -29,7 +29,7 @@ public class ScrambleCommand : BaseCommandModule {
         var msg = await Context.ReplyAsync("Processing...\nThis may take a while depending on the image size");
 
         // R a n d o m i z e
-        MagickImageCollection gif = null;
+        MagickImageCollection gif;
         if (args.extension.ToLower() != "gif")
             return;
 

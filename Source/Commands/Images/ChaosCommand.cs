@@ -75,34 +75,49 @@ public class ChaosCommand : BaseCommandModule {
         await msg.DeleteAsync();
     }
 
-    private void ApplyEffect(MagickImage img, ImageArgs args, ImageEffect effect) {
+    private static void ApplyEffect(MagickImage img, ImageArgs args, ImageEffect effect) {
         // YANDEV CODE G O
-        if (effect == ImageEffect.Explode)
-            ExplodeCommand.DoExplode(img, args);
-        else if (effect == ImageEffect.Deepfry)
-            DeepfryCommand.DoEnhancedFrying(img, args);
-        else if (effect == ImageEffect.Haah)
-            HaahCommand.DoHaah(img);
-        else if (effect == ImageEffect.Hooh)
-            HoohCommand.DoHooh(img);
-        else if (effect == ImageEffect.Waaw)
-            WaawCommand.DoWaaw(img);
-        else if (effect == ImageEffect.Woow)
-            WoowCommand.DoWoow(img);
-        else if (effect == ImageEffect.Wall)
-            WallCommand.DoWall(img, args);
-        else if (effect == ImageEffect.Magik)
-            MagikCommand.DoMagik(img, args);
-        else if (effect == ImageEffect.Invert)
-            InvertCommand.DoInvert(img);
-        else if (effect == ImageEffect.Implode)
-            ImplodeCommand.DoImplode(img, args);
-        else if (effect == ImageEffect.Flip)
-            FlipCommand.DoFlip(img);
-        else if (effect == ImageEffect.Flop)
-            FlopCommand.DoFlop(img);
-        else if (effect == ImageEffect.Jpeg)
-            JpegCommand.DoJpegification(img, args);
+        switch (effect) {
+            case ImageEffect.Explode:
+                ExplodeCommand.DoExplode(img, args);
+                break;
+            case ImageEffect.Deepfry:
+                DeepfryCommand.DoEnhancedFrying(img, args);
+                break;
+            case ImageEffect.Haah:
+                HaahCommand.DoHaah(img);
+                break;
+            case ImageEffect.Hooh:
+                HoohCommand.DoHooh(img);
+                break;
+            case ImageEffect.Waaw:
+                WaawCommand.DoWaaw(img);
+                break;
+            case ImageEffect.Woow:
+                WoowCommand.DoWoow(img);
+                break;
+            case ImageEffect.Wall:
+                WallCommand.DoWall(img, args);
+                break;
+            case ImageEffect.Magik:
+                MagikCommand.DoMagik(img, args);
+                break;
+            case ImageEffect.Invert:
+                InvertCommand.DoInvert(img);
+                break;
+            case ImageEffect.Implode:
+                ImplodeCommand.DoImplode(img, args);
+                break;
+            case ImageEffect.Flip:
+                FlipCommand.DoFlip(img);
+                break;
+            case ImageEffect.Flop:
+                FlopCommand.DoFlop(img);
+                break;
+            case ImageEffect.Jpeg:
+                JpegCommand.DoJpegification(img, args);
+                break;
+        }
     }
 }
 

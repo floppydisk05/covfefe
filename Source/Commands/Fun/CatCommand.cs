@@ -14,7 +14,7 @@ public class CatCommand : BaseCommandModule {
     [Description("Gets a random cat photo")]
     [Attributes.Category(Category.Fun)]
     public async Task Cat(CommandContext Context) {
-        var json = "";
+        string json;
         // Download the json string from the API
         using (var client = new WebClient()) {
             json = client.DownloadString(

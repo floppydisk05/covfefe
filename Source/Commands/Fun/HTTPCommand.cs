@@ -12,7 +12,7 @@ public class HTTPCommand : BaseCommandModule {
     [Description("Gets the specified (or random) HTTP status code from http.cat")]
     [Attributes.Category(Category.Fun)]
     public async Task HTTP(CommandContext Context, string code = "") {
-        var url = "";
+        string url;
         string[] codes = {
             "0", "100", "101", "102", "200", "201", "202", "203", "204", "206", "207", "300", "301", "302", "303",
             "304", "305", "307", "308", "400", "401", "402", "403", "404", "405", "406", "407", "408", "409", "410",

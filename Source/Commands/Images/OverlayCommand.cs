@@ -58,7 +58,7 @@ public class OverlayCommand : BaseCommandModule {
         await msg.DeleteAsync();
     }
 
-    private void DoOverlay(MagickImage image, ImageArgs args) {
+    private static void DoOverlay(IMagickImage image, ImageArgs args) {
         // Validate the image argument
         if (string.IsNullOrWhiteSpace(args.textArg))
             throw new Exception("No overlay provided!");

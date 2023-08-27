@@ -29,12 +29,21 @@ public class EightBallCommand : BaseCommandModule {
         var eb = new DiscordEmbedBuilder();
         eb.WithTitle($"🎱 {answers[index]}");
         // Set the embed's color
-        if (index <= 9)
-            eb.WithColor(new DiscordColor("#3BA55D"));
-        else if (index <= 14)
-            eb.WithColor(new DiscordColor("#FAA81A"));
-        else if (index <= 19)
-            eb.WithColor(new DiscordColor("#ED4245"));
+        switch (index) {
+            case <= 9:
+                eb.WithColor(new DiscordColor("#3BA55D"));
+                break;
+            case <= 14:
+                eb.WithColor(new DiscordColor("#FAA81A"));
+                break;
+            case <= 19:
+                eb.WithColor(new DiscordColor("#ED4245"));
+                break;
+            default:
+                eb.WithColor(DiscordColor.Gray);
+                break;
+        }
+        
         await Context.ReplyAsync("", eb.Build());
     }
 }

@@ -58,8 +58,7 @@ public class WoowCommand : BaseCommandModule {
     }
 
     public static void DoWoow(MagickImage image) {
-        MagickImage bottom;
-        bottom = (MagickImage)image.Clone();
+        MagickImage bottom = (MagickImage)image.Clone();
 
         var height = image.Height / 2;
         if (height <= 0)

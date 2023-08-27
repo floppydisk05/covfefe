@@ -12,10 +12,15 @@ public static class ResourceManager {
 
         // Get the full path
         var path = fileName;
-        if (type == ResourceType.JsonData || type == ResourceType.MiscData)
-            path = "Data/" + path;
-        else if (type == ResourceType.Resource)
-            path = "Resources/" + path;
+        switch (type) {
+            case ResourceType.JsonData:
+            case ResourceType.MiscData:
+                path = "Data/" + path;
+                break;
+            case ResourceType.Resource:
+                path = "Resources/" + path;
+                break;
+        }
 
         return path;
     }

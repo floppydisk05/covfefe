@@ -20,12 +20,11 @@ public class EvalCommand : BaseCommandModule {
     [Attributes.Category(Category.Owner)]
     [RequireOwner]
     public async Task Kill(CommandContext Context, [RemainingText] string code) {
-        var author = Context.Message.Author as DiscordMember;
         code = code.Replace("```cs", "");
         code = code.Replace("```", "");
         var OGCode = code;
         try {
-            EVGlobals globals = null;
+            EVGlobals globals;
             await Context.Message.Channel.TriggerTypingAsync();
             var scriptOptions = ScriptOptions.Default;
 

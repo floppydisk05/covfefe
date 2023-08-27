@@ -21,7 +21,7 @@ public class TranslateCommand : BaseCommandModule {
         var target = "";
         var arg1 = "";
         var arg2 = "";
-        var apiUrl = "https://translate.argosopentech.com/";
+        const string apiUrl = "https://translate.argosopentech.com/";
         var confidence = "";
         //bool auto = false;
         var client = new HttpClient();
@@ -78,7 +78,7 @@ public class TranslateCommand : BaseCommandModule {
         dynamic responseData = JsonConvert.DeserializeObject(await response.Content.ReadAsStringAsync());
         string translatedText = Convert.ToString(responseData.translatedText);
         if (translatedText.Length >= 1024) {
-            var baseUrl = "http://paste.nick99nack.com/";
+            const string baseUrl = "http://paste.nick99nack.com/";
             var hasteBinClient = new HasteBinClient(baseUrl);
             var HBresult = hasteBinClient.Post(translatedText).Result;
             translatedText = $"{baseUrl}{HBresult.Key}";

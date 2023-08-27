@@ -31,10 +31,13 @@ public class PollCommand : BaseCommandModule {
 
         // Parse/verify options
         var options = optionString.Split('|');
-        if (options.Length < 2)
-            throw new Exception("You must provide *at least* two options.");
-        if (options.Length > 10)
-            throw new Exception("You cannot have more than 10 options!");
+        switch (options.Length) {
+            case < 2:
+                throw new Exception("You must provide *at least* two options.");
+            case > 10:
+                throw new Exception("You cannot have more than 10 options!");
+        }
+
         for (var i = 0; i < options.Length; i++)
             options[i] = $"{optionEmotes[i]} {options[i]}";
 

@@ -84,7 +84,7 @@ internal class Bot {
         await Task.Delay(-1);
     }
 
-    private async Task Ready(DiscordClient client, ReadyEventArgs e) {
+    private static async Task Ready(DiscordClient client, ReadyEventArgs e) {
         // Set guilds
         Global.hostGuild = await client.GetGuildAsync(config.ids.hostGuild);
         Global.targetGuild = await client.GetGuildAsync(config.ids.targetGuild);
@@ -126,7 +126,7 @@ internal class Bot {
         EventLogging.Init();
     }
 
-    private void VerifyIntegrity() {
+    private static void VerifyIntegrity() {
         Log.Write(LogEventLevel.Information, "Verifying integrity of bot files...");
 
         // Verify directories
@@ -188,7 +188,7 @@ internal class Bot {
         ZipFile.ExtractToDirectory("Resources/Lyrics.zip", "Resources/");
     }
 
-    private void LoadConfigs() {
+    private static void LoadConfigs() {
         // Main bot config
         config = JsonConvert.DeserializeObject<BotConfig>(
             File.ReadAllText(GetResourcePath("config", ResourceType.Config)));

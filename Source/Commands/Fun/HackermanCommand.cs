@@ -32,10 +32,12 @@ public class HackermanCommand : BaseCommandModule {
     [Attributes.Category(Category.Fun)]
     public async Task Hackerman(CommandContext Context, int length = 6) {
         var r = new Random();
-        if (length < 6)
-            throw new Exception("Length must be greater than or equal to 6");
-        if (length > 100)
-            throw new Exception("Length must be less than 100");
+        switch (length) {
+            case < 6:
+                throw new Exception("Length must be greater than or equal to 6");
+            case > 100:
+                throw new Exception("Length must be less than 100");
+        }
 
         // Generate pure nonsense
         var jargon = actions[r.Next(0, actions.Length)];

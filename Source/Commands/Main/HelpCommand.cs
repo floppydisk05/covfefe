@@ -12,7 +12,7 @@ public class HelpCommand : BaseCommandModule {
     [Command("help")]
     [Description("Lists commands or gets info on a specific command")]
     [Usage("[command]")]
-    [Attributes.Category(Category.Main)]
+    [Category(Category.Main)]
     public async Task Help(CommandContext Context, [RemainingText] string command = null) {
         // Embed setup
         var eb = new DiscordEmbedBuilder();

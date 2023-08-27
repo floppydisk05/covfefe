@@ -15,7 +15,7 @@ public class InsultCommand : BaseCommandModule {
     public async Task Insult(CommandContext Context) {
         var eb = new DiscordEmbedBuilder();
         // Get the thing
-        var json = "";
+        string json;
         using (var http = new HttpClient()) {
             json = await http.GetStringAsync("http://evilinsult.com/generate_insult.php?lang=en&type=json");
         }

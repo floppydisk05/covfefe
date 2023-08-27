@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Timers;
+using Genbox.Wikipedia.Objects;
 using Serilog;
 using Serilog.Configuration;
 using Serilog.Core;
@@ -33,12 +34,19 @@ public class DiscordSink : ILogEventSink {
             message;
 
         // Change console colour
-        if (logEvent.Level == LogEventLevel.Warning)
-            Console.ForegroundColor = ConsoleColor.Yellow;
-        else if (logEvent.Level == LogEventLevel.Error || logEvent.Level == LogEventLevel.Fatal)
-            Console.ForegroundColor = ConsoleColor.Red;
-        else if (logEvent.Level == LogEventLevel.Debug || logEvent.Level == LogEventLevel.Verbose)
-            Console.ForegroundColor = ConsoleColor.DarkGray;
+        switch (logEvent.Level) {
+            case LogEventLevel.Warning:
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                break;
+            case LogEventLevel.Fatal:
+            case LogEventLevel.Error:
+                Console.ForegroundColor = ConsoleColor.Red;
+                break;
+            case LogEventLevel.Debug:
+            case LogEventLevel.Verbose:
+                Console.ForegroundColor = ConsoleColor.DarkGray;
+                break;
+        }
 
         // Print and write the log message
         Console.WriteLine(finalMessage);

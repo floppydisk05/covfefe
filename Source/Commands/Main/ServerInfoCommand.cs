@@ -19,7 +19,7 @@ public class ServerInfoCommand : BaseCommandModule {
         foreach (var emoji in Context.Guild.Emojis.Values)
             if (emoji.IsAnimated) animatedEmojis += 1;
             else staticEmojis += 1;
-        var channelTypes = new string[9] {
+        var channelTypes = new string[] {
             "Category", "Group", "News", "Private", "Stage", "Store", "Text", "Unknown", "Voice"
         };
         var types = new int[9] { 0, 0, 0, 0, 0, 0, 0, 0, 0 };
@@ -59,7 +59,7 @@ public class ServerInfoCommand : BaseCommandModule {
             if (types[i] > 0)
                 channelCounts += $" -[{channelTypes[i]}]: {types[i]}\n";
 
-        var guildTier = "";
+        string guildTier;
         switch (Guild.PremiumTier.ToString()) {
             case "None":
                 guildTier = "No level";
@@ -81,7 +81,7 @@ public class ServerInfoCommand : BaseCommandModule {
                 break;
         }
 
-        var contentFilter = "";
+        string contentFilter;
         switch (Guild.ExplicitContentFilter.ToString()) {
             case "AllMembers":
                 contentFilter = "All members";
@@ -97,7 +97,7 @@ public class ServerInfoCommand : BaseCommandModule {
                 break;
         }
 
-        var roles = new int[2] { 0, 0 };
+        var roles = new int[] { 0, 0 };
         foreach (var role in Guild.Roles.Values)
             if (role.IsManaged) roles[0] += 1;
             else roles[1] += 1;

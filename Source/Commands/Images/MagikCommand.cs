@@ -52,11 +52,14 @@ public class MagikCommand : BaseCommandModule {
                 gif = new MagickImageCollection();
 
                 // Default to 25 frames
-                if (args.size == 1)
-                    args.size = 25;
-                else if (args.size > 64)
-                    throw new Exception("New gif size must not exceed 64 frames!");
-
+                switch (args.size) {
+                    case 1:
+                        args.size = 25;
+                        break;
+                    case > 64:
+                        throw new Exception("New gif size must not exceed 64 frames!");
+                }
+                
                 // Create args.size frames with slightly different magik applied to each
                 for (var i = 0; i < args.size; i++) {
                     // Resize the frame to a percentage based on args.size, this is to provide

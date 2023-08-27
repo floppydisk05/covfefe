@@ -56,18 +56,17 @@ public class WTHCommand : BaseCommandModule {
         await msg.DeleteAsync();
     }
 
-    private MagickImage DoWTH(MagickImage img, ImageArgs args, bool isGif = false) {
+    private static MagickImage DoWTH(MagickImage img, ImageArgs args, bool isGif = false) {
         // Composite args
-        var rotation = 0.15f;
-        var srcX = 250;
-        var srcY = 283;
-        var compX = 63;
-        var compY = 52;
-        var imageFile = "wth.png";
+        const double rotation = 0.15f;
+        const int srcX = 250;
+        const int srcY = 283;
+        const int compX = 63;
+        const int compY = 52;
+        const string imageFile = "wth.png";
 
         // Setup
         var wth = new MagickImage(ResourceManager.GetResourcePath(imageFile, ResourceType.Resource));
-        var wthClean = new MagickImage(ResourceManager.GetResourcePath(imageFile, ResourceType.Resource));
 
         // Composite
         img.Resize(new MagickGeometry($"{srcX}x{srcY}!"));

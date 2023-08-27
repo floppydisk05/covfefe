@@ -151,7 +151,6 @@ public class TriviaCommand : BaseCommandModule {
         // Wait for a response
         var gameStart = DateTime.Now;
         var result = await Context.Channel.GetNextMessageAsync(m => {
-            var txt = m.Content;
             return m.Content == "1" || m.Content == "2" || m.Content == "3" || m.Content == "4";
         });
 

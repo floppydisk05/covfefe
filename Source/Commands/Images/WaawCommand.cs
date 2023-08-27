@@ -58,8 +58,7 @@ public class WaawCommand : BaseCommandModule {
     }
 
     public static void DoWaaw(MagickImage image) {
-        MagickImage left;
-        left = (MagickImage)image.Clone();
+        MagickImage left = (MagickImage)image.Clone();
 
         var width = image.Width / 2;
         if (width <= 0)

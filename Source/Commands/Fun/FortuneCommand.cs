@@ -13,7 +13,7 @@ public class FortuneCommand : BaseCommandModule {
     [Usage("fortune")]
     [Attributes.Category(Category.Fun)]
     public async Task Exec(CommandContext Context) {
-        var command = "/usr/games/fortune -a";
+        const string command = "/usr/games/fortune -a";
         var eb = new DiscordEmbedBuilder();
         eb.WithTitle("Fortune");
         eb.WithColor(DiscordColor.Gold);

@@ -58,8 +58,7 @@ public class HaahCommand : BaseCommandModule {
     }
 
     public static void DoHaah(MagickImage image) {
-        MagickImage right;
-        right = (MagickImage)image.Clone();
+        MagickImage right = (MagickImage)image.Clone();
 
         var width = image.Width / 2;
         if (width <= 0)

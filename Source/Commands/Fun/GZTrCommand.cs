@@ -7,7 +7,7 @@ using WinBot.Commands.Attributes;
 namespace WinBot.Commands.Fun; 
 
 public class GZTrCommand : BaseCommandModule {
-    public Dictionary<string, string> Dicctionary = new() {
+    public Dictionary<string, string> Dictionary = new() {
         { "enough", "enf" },
         { "ok", "k" },
         { "okay", "mk" },
@@ -50,7 +50,7 @@ public class GZTrCommand : BaseCommandModule {
     [Attributes.Category(Category.Fun)]
     public async Task gztrnocapbrofax(CommandContext Context, [RemainingText] string normalPersonText) {
         var output = normalPersonText.Replace("ing", "in").ToLower();
-        foreach (var word in Dicctionary)
+        foreach (var word in Dictionary)
             output = output.Replace(word.Key, word.Value);
         output = output.Replace("'", "").Replace("@", "").Replace(",", "");
         await Context.ReplyAsync(output);

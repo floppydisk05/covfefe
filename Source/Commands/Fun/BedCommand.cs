@@ -28,27 +28,31 @@ public class BedCommand : BaseCommandModule {
         var bedY = 506f;
         var userY = 615f;
         var fontSize = 70;
-        if (image.ToLower() == "agp") {
-            imageFile = GetResourcePath("agp.png", ResourceType.Resource);
-            genX = 125;
-            bedY = 35;
-            fontSize = 50;
-            userY = 360;
+        switch (image.ToLower()) {
+            case "agp":
+                imageFile = GetResourcePath("agp.png", ResourceType.Resource);
+                genX = 125;
+                bedY = 35;
+                fontSize = 50;
+                userY = 360;
+                break;
+            
+            case "agp2":
+                imageFile = GetResourcePath("agp2.png", ResourceType.Resource);
+                genX = 177.5f;
+                bedY = 60;
+                fontSize = 50;
+                userY = 450;
+                break;
+            
+            case "mehdi":
+                imageFile = GetResourcePath("mehdi.png", ResourceType.Resource);
+                bedY = 100;
+                genX = 307.5f;
+                userY = 680f;
+                break;
         }
-        else if (image.ToLower() == "agp2") {
-            imageFile = GetResourcePath("agp2.png", ResourceType.Resource);
-            genX = 177.5f;
-            bedY = 60;
-            fontSize = 50;
-            userY = 450;
-        }
-        else if (image.ToLower() == "mehdi") {
-            imageFile = GetResourcePath("mehdi.png", ResourceType.Resource);
-            bedY = 100;
-            genX = 307.5f;
-            userY = 680f;
-        }
-
+        
         // Load the font
         var fonts = new PrivateFontCollection();
         fonts.AddFontFile(GetResourcePath("impact.ttf", ResourceType.Resource));
@@ -65,8 +69,7 @@ public class BedCommand : BaseCommandModule {
             GraphicsUnit.Pixel
         );
 
-        SolidBrush brush;
-        brush = new SolidBrush(Color.White);
+        SolidBrush brush = new SolidBrush(Color.White);
         var snFormat = new StringFormat();
         snFormat.Alignment = StringAlignment.Center;
         snFormat.LineAlignment = StringAlignment.Center;

@@ -78,7 +78,7 @@ internal class ImageCommandParser {
         if (args.url.Contains("tenor.com/") && !args.url.Contains("c.tenor")) {
             // Download the tenor webpage
             var html = client.DownloadString(args.url);
-            var htmlFrag = "<meta itemProp=\"contentUrl\" content=\"";
+            const string htmlFrag = "<meta itemProp=\"contentUrl\" content=\"";
             if (!html.Contains(htmlFrag))
                 throw new Exception("Invalid or no image!");
             args.url = "";
@@ -103,14 +103,20 @@ internal class ImageCommandParser {
                     argName = argName.Split("=")[0];
 
                     // Set the appropriate value
-                    if (argName == "layers")
-                        args.layers = argVal;
-                    else if (argName == "size")
-                        args.size = argVal;
-                    else if (argName == "scale")
-                        args.scale = argVal;
-                    else
-                        args.textArg = '-' + argName;
+                    switch (argName) {
+                        case "layers":
+                            args.layers = argVal;
+                            break;
+                        case "size":
+                            args.size = argVal;
+                            break;
+                        case "size":
+                            args.scale = argVal;
+                            break;
+                        default:
+                            args.textArg = '-' + argName;
+                            break;
+                    }
                 }
                 else if (!Uri.IsWellFormedUriString(argsStr[i], UriKind.Absolute)) {
                     args.textArg = argsStr[i];

@@ -34,9 +34,6 @@ public class WhoisCommand : BaseCommandModule {
 
             var isBot = user.IsBot ? "Yes" : "No";
             var isOwner = user.IsOwner ? "Yes" : "No";
-            string hasMFA;
-            if (user.MfaEnabled == null) hasMFA = "COCK";
-            else hasMFA = (bool)user.MfaEnabled ? "Yes" : "No";
 
             Embed.AddField("**Information**",
                 $"**Mention:** <@{user.Id.ToString()}>\n**ID:** {user.Id.ToString()}\n**Bot:** {isBot}", true);
