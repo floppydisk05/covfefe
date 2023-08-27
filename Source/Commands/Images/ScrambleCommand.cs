@@ -36,11 +36,10 @@ namespace WinBot.Commands.Images
             MagickImageCollection gif = null;
             if(args.extension.ToLower() != "gif")
                 return;
-            else {
-                gif = new MagickImageCollection(tempImgFile);
-                var tmp = gif.OrderBy(x => new System.Random().Next()).ToArray();
-                gif = new MagickImageCollection(tmp);
-            }
+
+            gif = new MagickImageCollection(tempImgFile);
+            var tmp = gif.OrderBy(x => new System.Random().Next()).ToArray();
+            gif = new MagickImageCollection(tmp);
             
             TempManager.RemoveTempFile(seed+"-randomDL."+args.extension);
 

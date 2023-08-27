@@ -36,7 +36,7 @@ namespace WinBot.Util
             // Delete existing temp file if we are replacing it
             if(!replaceExisting && tempFiles.ContainsKey(name))
                 return tempFiles[name];
-            else if(tempFiles.ContainsKey(name) && replaceExisting)
+            if(tempFiles.ContainsKey(name) && replaceExisting)
                 tempFiles.Remove(name);
 
             // Generate a new file path

@@ -33,9 +33,9 @@ namespace WinBot.Commands.Fun
                 await Context.ReplyAsync(eb);
                 return;
             }
-            else if(!File.Exists($"Resources/Lyrics/{input.ToLower()}.txt") && input.ToLower() != "all")
+            if(!File.Exists($"Resources/Lyrics/{input.ToLower()}.txt") && input.ToLower() != "all")
                 throw new Exception("Invalid artist! Run 'lyrics list' to get a list of available artists");
-            else if(lines > 25)
+            if(lines > 25)
                 throw new Exception("You cannot have more than 25 lines!");
 
             // Get input text, this code sucks but I do not give a crap

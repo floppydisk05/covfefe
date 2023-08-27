@@ -28,7 +28,7 @@ namespace WinBot.Commands.Main
             string[] options = optionString.Split('|');
             if(options.Length < 2)
                 throw new Exception("You must provide *at least* two options.");
-            else if(options.Length > 10)
+            if(options.Length > 10)
                 throw new Exception("You cannot have more than 10 options!");
             for(int i = 0; i < options.Length; i++)
                 options[i] = $"{optionEmotes[i]} {options[i]}";
@@ -49,7 +49,7 @@ namespace WinBot.Commands.Main
             }
         }
 
-        static DiscordEmoji[] optionEmotes = new DiscordEmoji[] {
+        static DiscordEmoji[] optionEmotes = {
             DiscordEmoji.FromUnicode("🇦"), DiscordEmoji.FromUnicode("🇧"),
             DiscordEmoji.FromUnicode("🇨"), DiscordEmoji.FromUnicode("🇩"),
             DiscordEmoji.FromUnicode("🇪"), DiscordEmoji.FromUnicode("🇫"),

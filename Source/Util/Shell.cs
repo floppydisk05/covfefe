@@ -24,12 +24,11 @@ namespace WinBot.Util
             process.WaitForExit();
             if (result.Length < 1024)
                 return result;
-            else{
-                string baseUrl = "http://paste.nick99nack.com/";
-                var hasteBinClient = new HasteBinClient(baseUrl);
-                HasteBinResult HBresult = hasteBinClient.Post(result).Result;
-                return $"{baseUrl}{HBresult.Key}";
-            }
+            
+            string baseUrl = "http://paste.nick99nack.com/";
+            var hasteBinClient = new HasteBinClient(baseUrl);
+            HasteBinResult HBresult = hasteBinClient.Post(result).Result;
+            return $"{baseUrl}{HBresult.Key}";
         } 
     }
 }

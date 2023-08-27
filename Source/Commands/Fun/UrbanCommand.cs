@@ -36,7 +36,7 @@ namespace WinBot.Commands.Fun
                 await Context.ReplyAsync("Error: There are no results for that query.");
                 return;
             }
-            else if(string.IsNullOrWhiteSpace(definition.List.First().Example.Truncate(1024)))
+            if(string.IsNullOrWhiteSpace(definition.List.First().Example.Truncate(1024)))
                 hasExample = false;
 
             // Create an embed

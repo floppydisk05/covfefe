@@ -35,14 +35,13 @@ namespace WinBot.Commands.Images
             MagickImageCollection gif = null;
             if(args.extension.ToLower() != "gif")
                 return;
-            else {
-                gif = new MagickImageCollection(tempImgFile);
-                MagickImageCollection tempGif = new MagickImageCollection(tempImgFile);
-                tempGif.Reverse();
-                foreach(var frame in tempGif) {
-                    gif.Add(frame);
-                }
+            gif = new MagickImageCollection(tempImgFile);
+            MagickImageCollection tempGif = new MagickImageCollection(tempImgFile);
+            tempGif.Reverse(); 
+            foreach(var frame in tempGif) { 
+                gif.Add(frame);
             }
+            
             TempManager.RemoveTempFile(seed+"-gaagDL."+args.extension);
 
             // Save the image

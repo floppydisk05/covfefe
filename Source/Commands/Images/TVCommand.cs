@@ -116,8 +116,7 @@ namespace WinBot.Commands.Images
                 img.CopyPixels(tv);
                 return null;
             }
-            else
-                return tv;
+            return tv;
         }
 
         static string[] images = { "celebrate", "remote", "normal", "angry" };

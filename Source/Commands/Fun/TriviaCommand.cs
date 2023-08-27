@@ -34,7 +34,7 @@ namespace WinBot.Commands.Main
                 await Context.ReplyAsync($"You've answered {u.totalTrivia} questions. Of those, {u.correctTrivia} ({Math.Round((float)u.correctTrivia/(float)u.totalTrivia*100.0f)}%) were correct");
                 return;
             }
-            else if(input != null && input.ToLower() == "lb") {
+            if(input != null && input.ToLower() == "lb") {
                 
                 List<User> leaderboard = UserData.users.OrderByDescending(x => x.correctTrivia).ToList();
                 foreach(User tUser in leaderboard)

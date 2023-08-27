@@ -87,8 +87,8 @@ namespace WinBot.Commands.Images
                 img.CopyPixels(wth);
                 return null;
             }
-            else
-                return wth;
+            
+            return wth;
         }
     }
 }

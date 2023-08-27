@@ -21,7 +21,7 @@ namespace WinBot.Commands.Fun
             Random r = new Random();
             if(length < 6)
                 throw new Exception("Length must be greater than or equal to 6");
-            else if(length > 100)
+            if(length > 100)
                 throw new Exception("Length must be less than 100");
 
             // Generate pure nonsense
@@ -41,7 +41,7 @@ namespace WinBot.Commands.Fun
             await Context.ReplyAsync("", eb.Build());
         }
 
-        static string[] things = new string[] {
+        static string[] things = {
             "non-rotatable disk", "side fumbling CPU", "processor", "with multidimension network security access vulnerabilities",
             "oc6 level optical line", "microprocessor architecture", "server", "minecraft server",
             "webserver running Linux 0.01", "Linux system", "shell access terminals", "vulnerable networking firewall",
@@ -49,7 +49,7 @@ namespace WinBot.Commands.Fun
             "insecure Windows server", "Windows server 1985", "transdimensional phasing device", "ultimate security firewalls"
         };
 
-        static string[] actions = new string[] {
+        static string[] actions = {
             "I've hacked into your ", "I'm breaking into the ", "I've hacked the ", "I've gained effective root access to your ",
             "I'm gaining root access to ", "I've hacked into the ", "I broke into the "
         };

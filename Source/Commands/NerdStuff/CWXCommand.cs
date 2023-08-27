@@ -39,7 +39,7 @@ namespace WinBot.Commands.NerdStuff
                 }
             }
             if (result <= firstRecord) { await Context.ReplyAsync("Date specified is before first record (2017-03-19)"); return; }
-            else if (result > DateTime.Now) { await Context.ReplyAsync("Date specified is in the future"); return; }
+            if (result > DateTime.Now) { await Context.ReplyAsync("Date specified is in the future"); return; }
             Embed.WithTitle($"CWX Outlook for {date}");
             Embed.WithColor(DiscordColor.Gold);
             Embed.WithDescription($"[Full Forecast](http://www.convectiveweather.co.uk/forecast.php?date={date})");

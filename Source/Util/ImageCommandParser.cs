@@ -58,11 +58,11 @@ namespace WinBot.Util
                         args.url = msg.Attachments[0].Url;
                         break;
                     }
-                    else if(Uri.IsWellFormedUriString(msg.Content, UriKind.Absolute)) {
+                    if(Uri.IsWellFormedUriString(msg.Content, UriKind.Absolute)) {
                         args.url = msg.Content;
                         break;
                     }
-                    else if(msg.Embeds.Count > 0) {
+                    if(msg.Embeds.Count > 0) {
                         if(msg.Embeds.FirstOrDefault(x => x.Image != null) != null) 
                             args.url = msg.Embeds.FirstOrDefault(x => x.Image != null).Image.Url.ToString();
                         else if (msg.Embeds.FirstOrDefault(x => x.Thumbnail != null) != null)
