@@ -1,52 +1,33 @@
-using System;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Collections.Generic;
+namespace WinBot.Misc; 
 
-using DSharpPlus;
-using DSharpPlus.Entities;
-using DSharpPlus.EventArgs;
+public class MCServer {
+    public string address;
+    public string crackedInfo;
+    public string dynmap;
+    public ulong guildID;
+    public string versions;
 
-using Newtonsoft.Json;
+    public MCServer(ulong guildID, string address, string dynmap, string versions) {
+        this.guildID = guildID;
+        this.address = address;
+        this.dynmap = dynmap;
+        this.versions = versions;
+        crackedInfo = "No. It never will, just buy the game or stop asking.";
+    }
 
-using Serilog;
+    public MCServer(ulong guildID, string address, string versions) {
+        this.guildID = guildID;
+        this.address = address;
+        this.versions = versions;
+        dynmap = null;
+        crackedInfo = "No. It never will, just buy the game or stop asking.";
+    }
 
-using static WinBot.Util.ResourceManager;
-
-namespace WinBot.Misc
-{
-    public class MCServer
-    {
-        public ulong guildID;
-        public string address;
-        public string dynmap;
-        public string versions;
-        public string crackedInfo;
-        
-        public MCServer(ulong guildID, string address, string dynmap, string versions) {
-            this.guildID = guildID;
-            this.address = address;
-            this.dynmap = dynmap;
-            this.versions = versions;
-            this.crackedInfo = "No. It never will, just buy the game or stop asking.";
-        }
-
-        public MCServer(ulong guildID, string address, string versions) {
-            this.guildID = guildID;
-            this.address = address;
-            this.versions = versions;
-            this.dynmap = null;
-            this.crackedInfo = "No. It never will, just buy the game or stop asking.";
-        }
-
-        public MCServer() {
-            this.guildID = 0;
-            this.address = "address";
-            this.dynmap = "dynmap";
-            this.versions = "versions";
-            this.crackedInfo = "No. It never will, just buy the game or stop asking.";
-        }
-
+    public MCServer() {
+        guildID = 0;
+        address = "address";
+        dynmap = "dynmap";
+        versions = "versions";
+        crackedInfo = "No. It never will, just buy the game or stop asking.";
     }
 }

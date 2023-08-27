@@ -1,40 +1,34 @@
-using System.Linq;
+using System;
 using System.Threading.Tasks;
-
 using DSharpPlus.CommandsNext;
 using DSharpPlus.CommandsNext.Attributes;
-
+using Genbox.Wikipedia;
 using WinBot.Commands.Attributes;
 
-using Genbox.Wikipedia;
-using Genbox.Wikipedia.Objects;
+namespace WinBot.Commands.Main; 
 
-namespace WinBot.Commands.Main
-{
-    public class WikiCommand : BaseCommandModule
-    {
-        [Command("wiki")]
-        [Description("Search wikipedia")]
-        [Usage("[query]")]
-        [Attributes.Category(Category.Main)]
-        public async Task Wiki(CommandContext Context, [RemainingText] string query)
-        {
-            if(string.IsNullOrWhiteSpace(query))
-                throw new System.Exception("You must provide a search query!");
+public class WikiCommand : BaseCommandModule {
+    [Command("wiki")]
+    [Description("Search wikipedia")]
+    [Usage("[query]")]
+    [Attributes.Category(Category.Main)]
+    public async Task Wiki(CommandContext Context, [RemainingText] string query) {
+        if (string.IsNullOrWhiteSpace(query))
+            throw new Exception("You must provide a search query!");
 
-            using WikipediaClient wikiclient = new WikipediaClient();
-    
-            WikiSearchRequest req = new WikiSearchRequest(query);
-            req.Limit = 1;
-    
-            WikiSearchResponse resp = await wikiclient.SearchAsync(req);
-            
-            foreach (SearchResult s in resp.QueryResult.SearchResults){
-                Context.ReplyAsync($"{s.Url}".Replace(" ", "_"));
-                return;
-            }
-            
-            Context.ReplyAsync("No results.");;
+        using var wikiclient = new WikipediaClient();
+
+        var req = new WikiSearchRequest(query);
+        req.Limit = 1;
+
+        var resp = await wikiclient.SearchAsync(req);
+
+        foreach (var s in resp.QueryResult.SearchResults) {
+            Context.ReplyAsync($"{s.Url}".Replace(" ", "_"));
+            return;
         }
+
+        Context.ReplyAsync("No results.");
+        ;
     }
 }
